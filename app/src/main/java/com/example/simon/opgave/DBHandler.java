@@ -95,12 +95,12 @@ public class DBHandler extends SQLiteOpenHelper
         return result;
     }
 
+    // Checks availability of passed username in database
     public boolean usernameAvailable(String username)
     {
-        //TODO Find better way to handle this
         SQLiteDatabase db = getWritableDatabase();
         ResultSet result = null;
-        String query = "SELECT * FROM " + TABLE_USER + " WHERE " + COLOUMN_NAME + " = \"" + username + "\" LIMIT 1;";
+        String query = "SELECT * FROM " + TABLE_USER + " WHERE " + COLOUMN_NAME + " = \"" + username + "\" LIMIT 1;"; // Gets the first (only) element in the table with given username
 
         Cursor c = db.rawQuery(query, null);
         try
@@ -109,22 +109,23 @@ public class DBHandler extends SQLiteOpenHelper
 
             if (c.getString(c.getColumnIndex(COLOUMN_NAME)) == null)
             {
-                //No user in database with given username
                 db.close();
                 return false;
             }
         } catch (Exception e) // An exception is thrown because no column with the value was found
         {
             // The username is available
+            db.close();
             return true;
         }
 
-        // Shouldn't be reached
         return false;
     }
 
     public boolean confirmLogIn(String username, String password)
     {
+        //Comment til frederik
+
         //TODO Find better way to handle this
         SQLiteDatabase db = getWritableDatabase();
         ResultSet result = null;
