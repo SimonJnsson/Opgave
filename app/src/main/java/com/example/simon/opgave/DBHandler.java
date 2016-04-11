@@ -22,6 +22,7 @@ public class DBHandler extends SQLiteOpenHelper
     private static final String COLOUMN_SCORE = "score";
 
     //Comment for Git
+    //New Comment
 
     private static final int DATABASE_VERSION = 5;
 
