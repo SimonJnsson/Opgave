@@ -21,6 +21,8 @@ public class DBHandler extends SQLiteOpenHelper
     private static final String COLOUMN_PASSWORD = "password";
     private static final String COLOUMN_SCORE = "score";
 
+    //Comment for Git
+
     private static final int DATABASE_VERSION = 5;
 
     public DBHandler(Context context, SQLiteDatabase.CursorFactory factory)
