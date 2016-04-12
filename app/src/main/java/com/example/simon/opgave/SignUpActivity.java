@@ -65,6 +65,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                     Toast.makeText(getApplicationContext(), "Sign up successful, please login.", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(this, LoginActivity.class);
                     startActivity(intent);
+                    finish();
                 }
                 else
                 {
