@@ -9,7 +9,7 @@ import android.widget.Button;
 public class WelcomeActivity extends AppCompatActivity implements View.OnClickListener
 {
 
-    Button btnPlay;
+    Button btnPlay, btnLight;
 
     @Override
     public void onClick(View v)
@@ -19,6 +19,11 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
             Intent i = new Intent(this, GameActivity.class);
             startActivity(i);
         }
+        else if (v.equals(btnLight))
+        {
+            Intent intent = new Intent(this, Lightsensor.class);
+            startActivity(intent);
+        }
     }
 
     @Override
@@ -27,8 +32,10 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
         btnPlay = (Button) findViewById(R.id.btnPlay);
+        btnLight = (Button) findViewById(R.id.btn_Lightsensor);
 
         btnPlay.setOnClickListener(this);
+        btnLight.setOnClickListener(this);
 
 
     }
