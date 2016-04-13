@@ -6,30 +6,23 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class WelcomeActivity extends AppCompatActivity implements View.OnClickListener
+
+
+public class WelcomeActivity extends AppCompatActivity
 {
-
-    Button btnPlay;
-
-    @Override
-    public void onClick(View v)
-    {
-        if (v.equals(btnPlay))
-        {
-            Intent i = new Intent(this, GameActivity.class);
-            startActivity(i);
-        }
-    }
+    Button btn1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
-        btnPlay = (Button) findViewById(R.id.btnPlay);
+        btn1 = (Button) findViewById(R.id.btnLogin);
+    }
 
-        btnPlay.setOnClickListener(this);
-
-
+    public void RunCompass(View v)
+    {
+        Intent intent = new Intent(this, CompassActivity.class);
+        startActivity(intent);
     }
 }

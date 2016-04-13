@@ -20,14 +20,4 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textSize="40dp"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Play Game"
-        android:id="@+id/btnPlay"
-        android:layout_below="@+id/txtWelcome"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="92dp"
-        />
 </RelativeLayout>
