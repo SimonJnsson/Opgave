@@ -25,4 +25,12 @@
         android:id="@+id/textView_Light"
         android:layout_alignTop="@+id/TextView_Light"
         android:layout_centerHorizontal="true" />
+
+    <VideoView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/videoView"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
