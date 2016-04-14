@@ -68,4 +68,13 @@
         android:layout_below="@+id/EditTxtGuess"
         android:layout_centerHorizontal="true"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scores"
+        android:id="@+id/btnScore"
+        android:layout_below="@+id/BtnGuess"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="83dp"/>
+
 </RelativeLayout>

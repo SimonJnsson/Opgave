@@ -80,7 +80,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                     Toast.makeText(getApplicationContext(), "Invalid password", Toast.LENGTH_SHORT).show();
             }
 
-            Log.i("LOG", "Log: \n" + dbHandler.ToString());
+            Log.i("LOG", "Log: \n" + dbHandler.ToString(false));
         }
     }
 }

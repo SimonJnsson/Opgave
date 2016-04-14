@@ -1,6 +1,7 @@
 package com.example.simon.opgave;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -56,6 +57,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             if(dbHandler.confirmLogIn(username, hashedPassword))
             {
+                //Pass the username as shared preference for use on other activities
+                SharedPreferences sp = getSharedPreferences("savedVal",MODE_PRIVATE);
+                SharedPreferences.Editor editor = sp.edit();
+                editor.putString("username", username);
+                editor.commit();
+
                 Toast.makeText(getApplicationContext(), "Logged in.", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this, WelcomeActivity.class);
                 startActivity(intent);

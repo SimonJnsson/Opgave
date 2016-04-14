@@ -9,7 +9,6 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener
 {
-
     Button logInBtn, signUpBtn;
 
     @Override
@@ -32,7 +31,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
-            finish();
         }
         else if(v.equals(signUpBtn))
         {
