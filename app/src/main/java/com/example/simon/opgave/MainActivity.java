@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         logInBtn = (Button) findViewById(R.id.btnLogin);
         signUpBtn = (Button) findViewById(R.id.btnSignUp);
 
+
         logInBtn.setOnClickListener(this);
         signUpBtn.setOnClickListener(this);
     }

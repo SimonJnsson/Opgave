@@ -34,6 +34,16 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="LightSensor"
+        android:id="@+id/btn_Lightsensor"
+        android:layout_marginTop="58dp"
+        android:layout_below="@+id/btnPlay"
+        android:layout_alignLeft="@+id/btnPlay"
+        android:layout_alignStart="@+id/btnPlay" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="GPS"
         android:id="@+id/btnGps"
         android:layout_marginTop="50dp"
