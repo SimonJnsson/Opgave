@@ -17,16 +17,14 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".WelcomeActivity" />
         <activity android:name=".LocationActivity" />
         <activity android:name=".GameActivity" />
-        <activity android:name=".Lightsensor">
-            
-        </activity>
+        <activity android:name=".ScoreActivity" />
+        <activity android:name=".Lightsensor"/>
     </application>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
 
 </manifest>

@@ -33,6 +33,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         {
             Intent intent = new Intent(this, ScoreActivity.class);
             startActivity(intent);
+            finish();
         }
     }
 
@@ -65,8 +66,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         {
             if (sp.contains("number"))
             {
-                numToGuess = sp.getInt("number", 0);
-                Log.v(LOG, "Number passed through sharedPref: " + numToGuess);
+                numToGuess = sp.getInt("number", 25);
+                Log.v(LOG, "Log Number passed through sharedPref: " + numToGuess);
             }
         }
         catch(Exception e)
