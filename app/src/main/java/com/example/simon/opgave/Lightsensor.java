@@ -31,6 +31,7 @@ public class Lightsensor extends AppCompatActivity {
         mSensorManager.registerListener(LightSensorListener, mLight, mSensorManager.SENSOR_DELAY_NORMAL);
         tv = (TextView) findViewById(R.id.textView_Light);
 
+        tv.setText("No sensor on device");
     }
 
     private final SensorEventListener LightSensorListener = new SensorEventListener() {
@@ -39,10 +40,6 @@ public class Lightsensor extends AppCompatActivity {
             if (event.sensor.getType() == Sensor.TYPE_LIGHT)
             {
                 tv.setText("Light: " + event.values[0]);
-            }
-            else
-            {
-                //No sensor
             }
         }
 

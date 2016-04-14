@@ -9,7 +9,7 @@ import android.widget.Button;
 public class WelcomeActivity extends AppCompatActivity implements View.OnClickListener
 {
 
-    Button btnPlay, btnLight, btn1;
+    Button btnPlay, btnLight, btn1,btnGps;
 
     @Override
     public void onClick(View v)
@@ -24,14 +24,27 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
             Intent intent = new Intent(this, Lightsensor.class);
             startActivity(intent);
         }
+        else if(v.equals(btnGps))
+        {
+            Intent i = new Intent(this, LocationActivity.class);
+            startActivity(i);
+        }
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
         btnPlay = (Button) findViewById(R.id.btnPlay);
+        btnGps = (Button) findViewById(R.id.btnGps);
         btnLight = (Button) findViewById(R.id.btn_Lightsensor);
+
+        btnPlay.setOnClickListener(this);
+        btnGps.setOnClickListener(this);
+        btnLight.setOnClickListener(this);
+
+
         btn1 = (Button) findViewById(R.id.btnLogin);
     }
 }

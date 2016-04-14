@@ -1,27 +1,41 @@
 package com.example.simon.opgave;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.util.Log;
 import android.widget.Toast;
 
-public class GameActivity extends AppCompatActivity
+public class GameActivity extends AppCompatActivity implements View.OnClickListener
 {
     private static final String LOG = "MyActivityLog";
     public int guess, numToGuess, guessesLeft;
     public final int START_GUESS = 10;
     TextView txtInfo;
     EditText txtGuess;
+    DBHandler db;
+    Button btnScores;
+    SharedPreferences sp;
+
+    @Override
+    public void onClick(View v)
+    {
+        if(v.equals(btnScores))
+        {
+            Intent intent = new Intent(this, ScoreActivity.class);
+            startActivity(intent);
+            finish();
+        }
+    }
 
     private boolean isEmpty(EditText etText)
     {
@@ -43,13 +57,17 @@ public class GameActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        SharedPreferences sp = getSharedPreferences("savedVal",MODE_PRIVATE);
+        sp = getSharedPreferences("savedVal",MODE_PRIVATE);
+        db = new DBHandler(this, null);
+        btnScores = (Button) findViewById(R.id.btnScore);
+        btnScores.setOnClickListener(this);
 
         try
         {
-            if (sp.contains("number")){
-                numToGuess = sp.getInt("number", 0);
-                Log.v(LOG, "Number passed through sharedPref: " + numToGuess);
+            if (sp.contains("number"))
+            {
+                numToGuess = sp.getInt("number", 25);
+                Log.v(LOG, "Log Number passed through sharedPref: " + numToGuess);
             }
         }
         catch(Exception e)
@@ -66,6 +84,8 @@ public class GameActivity extends AppCompatActivity
         txtInfo = (TextView) findViewById(R.id.TxtInfo);
         txtGuess = (EditText) findViewById(R.id.EditTxtGuess);
         txtInfo.setText("");
+
+        Toast.makeText(getApplicationContext(), "New number generated", Toast.LENGTH_SHORT).show();
     }
 
 
@@ -114,6 +134,9 @@ public class GameActivity extends AppCompatActivity
                 {
                     txtInfo.setText("Correct! You guessed '" + numToGuess + "' in " + (START_GUESS - guessesLeft) + " guesses");
                 }
+
+                db.setScore(sp.getString("username", ""), guessesLeft * 10);
+                Log.i("LOG", "Log: \n" + db.ToString(false));
 
                 ResetGame();
 
