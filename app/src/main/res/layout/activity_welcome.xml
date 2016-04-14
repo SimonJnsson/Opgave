@@ -50,5 +50,17 @@
         android:width="150dp"
         android:height="75dp"
         android:layout_below="@+id/btnPlay"
-        android:layout_centerHorizontal="true"/>
+        android:layout_alignLeft="@+id/btnPlay"
+        android:layout_alignStart="@+id/btnPlay" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Compass"
+        android:id="@+id/btnCompass"
+        android:width="150dp"
+        android:height="75dp"
+        android:layout_below="@+id/btn_Lightsensor"
+        android:layout_alignLeft="@+id/btnPlay"
+        android:layout_alignStart="@+id/btnPlay"/>
 </RelativeLayout>
